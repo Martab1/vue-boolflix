@@ -1,22 +1,29 @@
 <template>
   <header>
-      <div>
-          logo
-      </div>
+      <section class="container flex">
+        <!-- logo -->
+        <div>
+            <img src="../assets/logo.png" alt="logo">
+        </div>
 
-      <form>
-         <input type="text"
-                placeholder="search movies"
-                v-model.trim="searching"
-         />
+        <form >
+            <!-- search bar -->
+            <input type="text"
+                    placeholder="search movies or tv series"
+                    v-model.trim="searching"
+            />
+            
+            <!-- button -->
+            <button
+                type="submit"
+                @click.prevent =" $emit('clickButton', searching)"
+                
+                >
+                search
+            </button>
+        </form>
+      </section>
 
-         <button
-          type="submit"
-          @click.prevent =" $emit('clickButton', searching)"
-         >
-          search
-         </button>
-      </form>
   </header>
 </template>
 
@@ -33,7 +40,27 @@ export default {
 
 
 
-
 <style scoped lang="scss">
+@import "../styles/utilities.scss";
+
+header{
+    background: rgb(23, 23, 24);
+}
+
+.container{
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+input{
+    width: 300px;
+    padding:5px 8px;
+    margin-right: 10px;
+    border: none;
+    background: rgb(36, 35, 35);
+    color:#fff;
+    outline: none;
+}  
 
 </style>

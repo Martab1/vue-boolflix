@@ -63,4 +63,13 @@ input{
     outline: none;
 }  
 
+button{
+    padding: 4px 8px;
+    border: none;
+    text-transform: uppercase;
+    background: rgb(82, 79, 79);
+    color: #fff;
+    font-size: 12px;
+}
+
 </style>

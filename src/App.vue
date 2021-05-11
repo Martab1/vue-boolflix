@@ -35,6 +35,14 @@ export default {
                 language: "en-EN",
                 }
             })
+            .then((res)=> {
+                //  console.log(res.data.results);
+                this.moviesList = res.data.results;    
+                
+            })
+            .catch((err) => {
+              console.log("Errore", err);
+            });
             // API CALL tv
             axios.get(this.tvAPI,{
                 params: {
@@ -45,7 +53,7 @@ export default {
             })
             .then((res)=> {
                 //  console.log(res.data.results);
-                this.moviesList = res.data.results;    
+                  
                 this.tvSerieList = res.data.results;
             })
             .catch((err) => {
@@ -60,5 +68,6 @@ export default {
 
 <style lang="scss">
 @import "./styles/general.scss";
+
 
 </style>

@@ -1,30 +1,31 @@
 <template>
    <div class="box">
-       <!-- image -->
-       <img class="film-image" :src="`https://image.tmdb.org/t/p/w342/${details.poster_path}`" alt="">
-    
+       <!-- IMAGE -->
+       <img v-if ="details.poster_path" class="film-image" :src="`https://image.tmdb.org/t/p/w342/${details.poster_path}`" alt="">
+       <div class="no-poster" v-else> movie poster temporarily unavailable</div>
 
       <ul>
-          <!-- title -->
-        <h3>  <span>Title:</span> 
+          <!-- TITLE -->
+        <h3 class="title weight">  <span class="info weight">Title:</span> 
              {{ details.title == undefined ? details.name : details.title }} </h3>
 
-        <h3> <span>Original Title: </span> 
+        <h3 class="title weight"> <span class="info weight">Original Title: </span> 
             {{ details.original_title === undefined ? details.original_name : details.original_title }}</h3>
 
-        <!-- languages -->
-         <h3>  <span>Original language:</span> </h3> 
-        <li  v-if="details.original_language === 'en'" >
+        <!-- LANGUAGES -->
+         <h3>  <span class="info weight">Original language:</span> </h3> 
+         
+         <li  v-if="details.original_language === 'en'" >
             <img class="flag" src="../assets/en.png" alt=""></li>
 
         <li v-else-if ="details.original_language === 'it'"> 
              <img class="flag" src="../assets/it.png" alt=""> </li>
 
-        <!--  stars vote -->
-        <li>Vote: {{ details.vote_average }}</li>
+        <!--  STARS VOTE -->
+        <li class="weight" >Vote: {{ details.vote_average }}</li>
 
-        <!-- overview -->
-        <li class="over">Overview: {{ details.overview }}</li>
+        <!-- OVERVIEW -->
+        <li class="weight"> Overview: {{ details.overview }}</li>
     </ul>
 
    </div>
@@ -52,7 +53,6 @@ export default {
     width: 340px;
     height: 500px;
     margin-bottom: 40px;
-    
     overflow: hidden; 
     &:hover{
         ul{
@@ -61,41 +61,35 @@ export default {
     }
 }
 
- .film-image{
+.film-image{
      position: absolute;
      top: 0;
      left: 0;
-     object-fit: contain;
-     
+     object-fit: contain;   
   }
 
 
- ul {
-     z-index: 2;
+ul {
+     z-index: 1;
      position: absolute;
      bottom:0 ;
-     left: 1rem;
-     transform: translateY(-50%);
-     list-style: none;
+     left: 20px;
+     transform: translateY(-50%,-50%);
      color: #fff;
      opacity: 0;
-     transition:  0.4s;
+     transition: opacity .7s;
     }
 
-ul,li,h3,span{
+ul,li,h3{
+
+    padding: 2px 0;
     background: transparent;
 }
 
 
-
-.over{
-        max-height: 10rem;
-        margin-bottom: 1rem;
-        overflow: hidden;   
-}
-
 .flag{
    width: 30px;
+   padding: 5px 0;
 }
 
 
@@ -117,6 +111,15 @@ ul,li,h3,span{
 .box:hover::after,
 .box:hover{
     opacity:1;
+}
+
+// controllo film senza poster
+.no-poster{
+   margin-top: 200px;
+   text-transform: uppercase;
+   text-align: center;
+   font-size: 20px;
+   
 }
 
 </style>

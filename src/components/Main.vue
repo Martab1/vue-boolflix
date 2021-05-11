@@ -3,13 +3,13 @@
        <section class="container">
 
             <!-- movie card -->
-            <h2> movies </h2>
+            <h2 > boolflix original movies </h2>
             <div class="flex wrap space-around"> 
                 <Card v-for="movie in movies" :key="movie.id" :details="movie"/>
             </div>
             
             <!-- series card -->
-            <h2> series</h2>
+            <h2> boolflix original series</h2>
             <div class="flex wrap space-around"> 
                 <Card v-for="serie in series" :key="serie.id" :details="serie"/>
             </div>
@@ -39,16 +39,14 @@ export default {
 
 
 .container{
-    padding: 50px ; 
-    // background: #fff; 
-   
-    
+    padding:  50px ; 
+    padding-top: 150px;   
 }
 
 h2{
+    margin-bottom: 20px ;
     text-transform: uppercase;
-    color:rgb(133, 128, 128);
-    margin-bottom: 10px ;
+    color:rgb(133, 128, 128);  
 }
 
 

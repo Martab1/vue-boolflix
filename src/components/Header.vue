@@ -1,25 +1,37 @@
 <template>
   <header>
       <section class="container flex">
-        <!-- logo -->
+        <!-- LOGO -->
         <div>
             <img src="../assets/logo.png" alt="logo">
         </div>
 
+       <!-- NAV -->
+        <nav>
+            <ul class="flex">
+                <li> Home</li>
+                <li> Series TV</li>
+                <li> Movies</li>
+                <li> Originals</li>
+                <li> Recently added</li>
+                <li> My list</li>
+            </ul>
+        </nav>
+
         <form >
-            <!-- search bar -->
+            <!-- SEARCH BAR -->
             <input type="text"
                     placeholder="search movies or tv series"
                     v-model.trim="searching"
             />
             
-            <!-- button -->
+            <!-- BUTTON -->
             <button
                 type="submit"
                 @click.prevent =" $emit('clickButton', searching)"
                 
                 >
-                search
+                <i class="fa fa-search"/>
             </button>
         </form>
       </section>
@@ -45,6 +57,26 @@ export default {
 
 header{
     background: rgb(23, 23, 24);
+    position:fixed;
+    top:0;
+    left:0;
+    right: 0;
+    z-index: 2;
+     nav {
+         position: absolute;
+         left: 380px;
+     } ul li {
+        cursor:pointer;
+        color:rgb(97, 94, 94);
+        transition: .4s;
+        &:hover{
+            color:#fff;
+        }
+    }
+}
+
+nav ul li:not(:last-child){
+     margin-right: 15px;
 }
 
 .container{
@@ -61,15 +93,26 @@ input{
     background: rgb(36, 35, 35);
     color:#fff;
     outline: none;
+    &:focus{
+      border: 1px solid rgb(163, 29, 29);
+    }
 }  
 
+// btn search
+
 button{
-    padding: 4px 8px;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
     border: none;
+    border-radius: 50%;
     text-transform: uppercase;
-    background: rgb(82, 79, 79);
+    background: transparent;
     color: #fff;
-    font-size: 12px;
+    font-size: 1rem;
+    .fa-search{
+        background:transparent;
+    }
 }
 
 </style>

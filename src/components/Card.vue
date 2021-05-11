@@ -1,7 +1,7 @@
 <template>
    <div class="box">
        <!-- image -->
-       
+       <img :src="`https://image.tmdb.org/t/p/w342/${details.poster_path}`" alt="">
     
 
          <!-- title -->
@@ -15,10 +15,10 @@
         <!-- languages -->
         <strong>  Original language:</strong>
         <li v-if="details.original_language === 'en'" >
-            <img src="../assets/en.png" alt=""></li>
+            <img class="flag" src="../assets/en.png" alt=""></li>
 
         <li v-else-if ="details.original_language === 'it'"> 
-             <img src="../assets/it.png" alt=""> </li>
+             <img class="flag" src="../assets/it.png" alt=""> </li>
 
         <!--  stars vote -->
         <li>Vote: {{ details.vote_average }}</li>
@@ -50,7 +50,7 @@ export default {
    margin: 5px 5px;
 }
 
-img{
+.flag{
    width: 30px;
 }
 

@@ -1,6 +1,9 @@
 <template>
-   <main class="container">
+   <main class="container flex">
+       <!-- movie card -->
       <Card v-for="movie in movies" :key="movie.id" :details="movie"/>
+      <!-- series card -->
+      <Card v-for="serie in series" :key="serie.id" :details="serie"/>
      
    </main>
 </template>
@@ -15,7 +18,7 @@ export default {
         Card,
     },
     // props main >> app 
-    props:["movies"],  
+    props:["movies" , "series"],  
    
 }
 </script>
@@ -23,8 +26,11 @@ export default {
 
 <style scoped lang="scss">
 @import "../styles/utilities.scss";
+
 .container{
     padding: 30px;
+    flex-wrap: wrap;
+   
 }
 
 

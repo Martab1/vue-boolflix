@@ -43,7 +43,7 @@ export default {
             });
 
           // CREATED TV SERIES WEEK  
-           axios.get(this.moviesWeekAPI, {
+           axios.get(this.tvWeekAPI, {
                 params: {
                 api_key: 'a1f0787be082c3c3dbbeea4cb6f5f368',              
                 }

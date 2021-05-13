@@ -7,22 +7,17 @@
 
       <ul>
           <!-- TITLE -->
-        <h3 class="title weight">  <span class="info weight">Title:</span> 
-             {{ details.title == undefined ? details.name : details.title }} </h3>
-
-        <h3 class="title weight"> <span class="info weight">Original Title: </span> 
-            {{ details.original_title === undefined ? details.original_name : details.original_title }}</h3>
-
+        <h4 class="title weight">  <span class="info weight">Title:</span>
+             {{ details.title == undefined ? details.name : details.title }} </h4>
+         <h4 class="title weight"> <span class="info weight">Original Title: </span> 
+            {{ details.original_title === undefined ? details.original_name : details.original_title }}</h4>
 
         <!-- LANGUAGES -->
-         <h3>  <span class="info weight">Original language:</span> </h3> 
-         
-         <li  v-if="details.original_language === 'en'" >
-            <img class="flag" src="../assets/en.png" alt=""></li>
-
-        <li v-else-if ="details.original_language === 'it'"> 
-             <img class="flag" src="../assets/it.png" alt=""> </li>
-
+        <li class="languages">
+            <span class="info weight">Original language:</span> 
+            <img v-if="details.original_language === 'en'" class="flag" src="../assets/en.png" alt="">
+            <img v-else-if ="details.original_language === 'it'" class="flag" src="../assets/it.png" alt="">
+         </li>
 
         <!--  STARS VOTE -->
         <li class="weight" > Vote: 
@@ -37,13 +32,12 @@
                 v-for =" star in (5 - starsVote(details.vote_average))"
                 :key="`empty-${star}`"
              ></i>
-        </li>
-
+         </li>
 
         <!-- OVERVIEW -->
         <li class="weight overview"> Overview: {{ details.overview }}</li>
 
-    </ul>
+      </ul>
 
    </div>
 </template>
@@ -97,26 +91,31 @@ export default {
 ul {
      z-index: 1;
      position: absolute;
-     bottom:0 ;
+     bottom:1rem;
      left: 20px;
      transform: translateY(-50%,-50%);
      color: $text;
      opacity: 0;
      transition: opacity .7s;
+     font-size: 13px;
+     
     }
 
-ul,li,h3{
+ul,li,h4{
 
     padding: 2px 0;
     background: transparent;
 }
 
+li{
+    padding: 2px 0;
+}
 
 .flag{
    width: 30px;
-   margin: 5px 0;
+   margin: 5px 5px;
+   vertical-align: middle;
 }
-
 
 
 //  OVERLAY 
@@ -140,6 +139,7 @@ ul,li,h3{
 .overview{
     max-height: 160px;
     overflow: scroll;
+    text-align: left;
 }
 
 .fas.fa-star,

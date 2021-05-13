@@ -23,16 +23,13 @@
             <input type="text"
                     placeholder="search movies or tv series"
                     v-model.trim="searching"
-                    
-                    
-
                    
             />
             
             <!-- BUTTON -->
             <button
                 type="submit"
-                @click.prevent =" $emit('clickButton', searching)"
+                @click.prevent =" $emit('clickButton', searching)" 
                 
                 >
                 <i class="fa fa-search"/>
@@ -63,7 +60,6 @@ export default {
 
 header{
     padding: 10px;
-    background:$bgHeader;
     position:fixed;
     top:0;
     left:0;
@@ -122,5 +118,10 @@ button{
         background:transparent;
     }
 }
+
+
+
+
+
 
 </style>

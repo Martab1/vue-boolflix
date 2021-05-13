@@ -10,16 +10,15 @@
             </h2>
 
            <div class="container movie">
-            <!-- movie card -->
-            <div class="flex ">
-                    <div class="flex "> 
-                        <Card v-for="movie in movies" 
-                            :key="movie.id" 
-                            :details="movie"/>
-                    </div>
+                <!-- movie card -->
+                <div class="flex ">
+                        <div class="flex "> 
+                            <Card v-for="movie in movies" 
+                                :key="movie.id" 
+                                :details="movie"/>
+                        </div>
+                </div>
             </div>
-
-        </div>
 
         <!-- tv title -->
          <h2 v-show=" series.length > 0 " 
@@ -28,14 +27,14 @@
         </h2>
 
          <div class="container tv">
-            <!-- series card -->
-            <div class="flex ">
-                    <div class="flex"> 
-                        <Card v-for="serie in series" 
-                            :key="serie.id" 
-                            :details="serie"/>
-                    </div>
-            </div>
+                <!-- series card -->
+                <div class="flex ">
+                        <div class="flex"> 
+                            <Card v-for="serie in series" 
+                                :key="serie.id" 
+                                :details="serie"/>
+                        </div>
+                </div>
         </div>
 
     </section>
@@ -86,8 +85,5 @@ h2{
     border-bottom: 1px solid rgb(201, 72, 72);
 }
 
-main{
-    background: rgb(23, 23, 24);
-}
 
 </style>

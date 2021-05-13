@@ -42,7 +42,7 @@
 
         <!-- OVERVIEW -->
         <li class="weight overview"> Overview: {{ details.overview }}</li>
-        
+
     </ul>
 
    </div>
@@ -77,8 +77,9 @@ export default {
     margin: 0 10px;
     margin-bottom: 40px;
     overflow: hidden; 
+    transition: .4s;
     &:hover{
-        
+        transform: scale(1.1);
         ul{
             opacity: 1;
         }

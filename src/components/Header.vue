@@ -23,6 +23,7 @@
             <input type="text"
                     placeholder="search movies or tv series"
                     v-model.trim="searching"
+                    @keyup=" $emit('key',searching)"
                    
             />
             

@@ -1,7 +1,7 @@
 <template>
      <section>
-       <Header @clickButton="getMovies" />  
-       <Main :movies ="moviesList" :series="tvSerieList"/>  
+       <Header @clickButton="getMovies" @key="getMovies" />  
+       <Main :movies ="moviesList" :series="tvSerieList" />  
      </section>
 </template>
 
@@ -33,7 +33,7 @@ export default {
          // CREATED MOVIES WEEK
          axios.get(this.moviesWeekAPI, {
                 params: {
-                api_key: 'a1f0787be082c3c3dbbeea4cb6f5f368',              
+                api_key: this.apiKey,              
                 }
             })
             .then((res)=> {
@@ -47,7 +47,7 @@ export default {
           // CREATED TV SERIES WEEK  
            axios.get(this.tvWeekAPI, {
                 params: {
-                api_key: 'a1f0787be082c3c3dbbeea4cb6f5f368',              
+                api_key: this.apiKey,              
                 }
             })
             .then((res)=> {
@@ -64,7 +64,7 @@ export default {
             // API CALL movies
             axios.get(this.moviesAPI, {
                 params: {
-                api_key: 'a1f0787be082c3c3dbbeea4cb6f5f368',
+                api_key: this.apiKey,
                 query: search,
                 
                 }
@@ -80,7 +80,7 @@ export default {
             // API CALL tv
             axios.get(this.tvAPI,{
                 params: {
-                api_key: 'a1f0787be082c3c3dbbeea4cb6f5f368',
+                api_key: this.apiKey,
                 query: search,
                 
                 }

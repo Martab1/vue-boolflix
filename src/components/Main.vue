@@ -1,19 +1,43 @@
 <template>
    <main>
-       <section class="container">
+       
+       <section >
+          
+           <!-- movie title -->
+           <h2  v-show=" movies.length > 0" 
+                class="container movie-title"> 
+                boolflix original movies 
+            </h2>
 
+           <div class="container movie">
             <!-- movie card -->
-            <h2 > boolflix original movies </h2>
-            <div class="flex wrap space-around"> 
-                <Card v-for="movie in movies" :key="movie.id" :details="movie"/>
+            <div class="flex ">
+                    <div class="flex "> 
+                        <Card v-for="movie in movies" 
+                            :key="movie.id" 
+                            :details="movie"/>
+                    </div>
             </div>
-            
+
+        </div>
+
+        <!-- tv title -->
+         <h2 v-show=" series.length > 0 " 
+             class="container "> 
+             boolflix original series
+        </h2>
+
+         <div class="container tv">
             <!-- series card -->
-            <h2> boolflix original series</h2>
-            <div class="flex wrap space-around"> 
-                <Card v-for="serie in series" :key="serie.id" :details="serie"/>
+            <div class="flex ">
+                    <div class="flex"> 
+                        <Card v-for="serie in series" 
+                            :key="serie.id" 
+                            :details="serie"/>
+                    </div>
             </div>
-      
+        </div>
+
     </section>
    </main>
 </template>
@@ -36,18 +60,34 @@ export default {
 
 <style scoped lang="scss">
 @import "../styles/utilities.scss";
+@import "../styles/vars.scss";
 
 
-.container{
-    padding:  50px ; 
-    padding-top: 150px;   
+.container{ 
+    padding-top:50px;
+    overflow-x: auto;
+    
 }
 
-h2{
-    margin-bottom: 20px ;
+.container.movie{
+    padding-top: 200px;
+}
+
+
+.movie-title{
+    position: relative;
+    top: 160px;
+}
+
+h2{  
+    padding-bottom: 5px;
     text-transform: uppercase;
-    color:rgb(133, 128, 128);  
+    color: $h2;  
+    border-bottom: 1px solid rgb(201, 72, 72);
 }
 
+main{
+    background: rgb(23, 23, 24);
+}
 
 </style>

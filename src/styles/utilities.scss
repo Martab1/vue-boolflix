@@ -8,12 +8,12 @@
   display: flex;
 }
 
-.wrap {
-  flex-wrap: wrap;
+.relative {
+  position: relative;
 }
 
-.space-around {
-  justify-content: space-around;
+.width100 {
+  width: 100%;
 }
 
 // STYLE
@@ -33,3 +33,5 @@ ul {
 .weight {
   font-weight: 300;
 }
+
+// SPACING

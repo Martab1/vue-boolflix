@@ -18,11 +18,15 @@
             </ul>
         </nav>
 
-        <form >
+        <form>
             <!-- SEARCH BAR -->
             <input type="text"
                     placeholder="search movies or tv series"
                     v-model.trim="searching"
+                    
+                    
+
+                   
             />
             
             <!-- BUTTON -->
@@ -44,9 +48,10 @@ export default {
      name: "Header",
      data(){
          return{
-             searching: "",
+             searching:"",
          }
-     }
+     },
+  
 }
 </script>
 
@@ -54,9 +59,11 @@ export default {
 
 <style scoped lang="scss">
 @import "../styles/utilities.scss";
+@import "../styles/vars.scss";
 
 header{
-    background: rgb(23, 23, 24);
+    padding: 10px;
+    background:$bgHeader;
     position:fixed;
     top:0;
     left:0;
@@ -67,10 +74,10 @@ header{
          left: 380px;
      } ul li {
         cursor:pointer;
-        color:rgb(97, 94, 94);
+        color: $nav;
         transition: .4s;
         &:hover{
-            color:#fff;
+            color:$text;
         }
     }
 }
@@ -90,9 +97,10 @@ input{
     padding:5px 8px;
     margin-right: 10px;
     border: none;
-    background: rgb(36, 35, 35);
-    color:#fff;
+    background: $bgInput;
+    color:$text;
     outline: none;
+    border-radius: 3px;
     &:focus{
       border: 1px solid rgb(163, 29, 29);
     }
@@ -108,7 +116,7 @@ button{
     border-radius: 50%;
     text-transform: uppercase;
     background: transparent;
-    color: #fff;
+    color: $text;
     font-size: 1rem;
     .fa-search{
         background:transparent;

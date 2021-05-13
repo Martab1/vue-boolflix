@@ -1,8 +1,9 @@
 <template>
-   <div class="box">
+  
+   <div class="box relative">
        <!-- IMAGE -->
        <img v-if ="details.poster_path" class="film-image" :src="`https://image.tmdb.org/t/p/w342/${details.poster_path}`" alt="">
-       <div class="no-poster" v-else> movie poster temporarily unavailable</div>
+       <img  class="width100" v-else src="../assets/poster-placeholder.png" alt="">
 
       <ul>
           <!-- TITLE -->
@@ -11,6 +12,7 @@
 
         <h3 class="title weight"> <span class="info weight">Original Title: </span> 
             {{ details.original_title === undefined ? details.original_name : details.original_title }}</h3>
+
 
         <!-- LANGUAGES -->
          <h3>  <span class="info weight">Original language:</span> </h3> 
@@ -21,11 +23,26 @@
         <li v-else-if ="details.original_language === 'it'"> 
              <img class="flag" src="../assets/it.png" alt=""> </li>
 
+
         <!--  STARS VOTE -->
-        <li class="weight" >Vote: {{ details.vote_average }}</li>
+        <li class="weight" > Vote: 
+            <!-- full star -->
+            <i class=" fas fa-star"
+                v-for =" star in starsVote(details.vote_average)"
+                :key="`full-${star}`"
+            ></i>
+
+             <!-- empty star -->
+             <i class=" far fa-star"
+                v-for =" star in (5 - starsVote(details.vote_average))"
+                :key="`empty-${star}`"
+             ></i>
+        </li>
+
 
         <!-- OVERVIEW -->
-        <li class="weight"> Overview: {{ details.overview }}</li>
+        <li class="weight overview"> Overview: {{ details.overview }}</li>
+        
     </ul>
 
    </div>
@@ -36,6 +53,11 @@ export default {
     name: "Card",
     // props card >> main
      props: ["details"],
+     methods:{
+         starsVote(vote){
+             return Math.ceil( vote / 2);
+         }
+     }
  
      
 }
@@ -43,18 +65,20 @@ export default {
 
 <style scoped lang="scss">
 @import "../styles/utilities.scss";
+@import "../styles/vars.scss";
 
 
 
 // BOX
 .box{
     cursor: pointer;
-    position: relative;
     width: 340px;
     height: 500px;
+    margin: 0 10px;
     margin-bottom: 40px;
     overflow: hidden; 
     &:hover{
+        
         ul{
             opacity: 1;
         }
@@ -75,7 +99,7 @@ ul {
      bottom:0 ;
      left: 20px;
      transform: translateY(-50%,-50%);
-     color: #fff;
+     color: $text;
      opacity: 0;
      transition: opacity .7s;
     }
@@ -89,13 +113,12 @@ ul,li,h3{
 
 .flag{
    width: 30px;
-   padding: 5px 0;
+   margin: 5px 0;
 }
 
 
 
 //  OVERLAY 
-
 .box::after{
     content: "";
     position: absolute;
@@ -113,13 +136,16 @@ ul,li,h3{
     opacity:1;
 }
 
-// controllo film senza poster
-.no-poster{
-   margin-top: 200px;
-   text-transform: uppercase;
-   text-align: center;
-   font-size: 20px;
-   
+.overview{
+    max-height: 160px;
+    overflow: scroll;
+}
+
+.fas.fa-star,
+.far.fa-star{
+    color: $star;
+    font-size: 14px;
+    background: transparent;
 }
 
 </style>

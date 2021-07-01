@@ -72,6 +72,7 @@ export default {
     margin-bottom: 40px;
     overflow: hidden; 
     transition: .4s;
+    box-shadow: 2px -4px 10px rgb(8, 8, 8);
     &:hover{
         transform: scale(1.1);
         ul{

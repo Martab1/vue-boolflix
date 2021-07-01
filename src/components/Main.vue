@@ -62,6 +62,11 @@ export default {
 @import "../styles/vars.scss";
 
 
+main{
+    background: url('../assets/background.webp') ;
+    background-size:cover ;
+}
+
 .container{ 
     padding-top:50px;
     overflow-x: auto;

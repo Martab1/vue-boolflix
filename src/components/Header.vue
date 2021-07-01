@@ -71,10 +71,13 @@ header{
          left: 380px;
      } ul li {
         cursor:pointer;
-        color: $nav;
+        color: $text;
+        font-weight:800;
+        padding: 0 10px;
         transition: .4s;
+        
         &:hover{
-            color:$text;
+           color:red;
         }
     }
 }
@@ -95,11 +98,11 @@ input{
     margin-right: 10px;
     border: none;
     background: $bgInput;
-    color:$text;
+    color: black;
     outline: none;
     border-radius: 3px;
     &:focus{
-      border: 1px solid rgb(163, 29, 29);
+      border: 1px solid rgb(7, 7, 7);
     }
 }  
 
